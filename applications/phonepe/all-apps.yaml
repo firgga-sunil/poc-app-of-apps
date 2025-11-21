@@ -32,7 +32,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://charts.bitnami.com/bitnami"
+    repoURL: "https://helm.nginx.com/stable"
     targetRevision: "22.3.2"
     chart: nginx
     helm:

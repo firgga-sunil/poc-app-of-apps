@@ -1,8 +1,13 @@
-replicaCount: 2
-service:
-  type: ClusterIP
-  port: 80
+controller:
+  replicaCount: 2
+
+  service:
+    type: ClusterIP
+    ports:
+      - name: http
+        port: 80
+
 resources:
-  requests:
-    cpu: 50m
-    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi

@@ -9,6 +9,8 @@ spec:
     repoURL: 'git@github.com:firgga-sunil/poc-app-of-apps.git'
     targetRevision: main
     path: 'applications/phonepe'    # points to folder containing all-apps.yaml
+    directory:
+      recurse: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
