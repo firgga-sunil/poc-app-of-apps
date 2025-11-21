@@ -13,7 +13,7 @@ spec:
     chart: postgresql
     helm:
       valueFiles:
-        - postgres.values.yaml
+        - '../../../envs/phonepe/postgres.values.yaml'
   destination:
     server: "https://kubernetes.default.svc"
     namespace: postgres-namespace
@@ -37,7 +37,7 @@ spec:
     chart: nginx
     helm:
       valueFiles:
-        - '../../envs/phonepe/nginx.values.yaml'
+        - '../../../envs/phonepe/nginx.values.yaml'
   destination:
     server: "https://kubernetes.default.svc"
     namespace: nginx-namespace
