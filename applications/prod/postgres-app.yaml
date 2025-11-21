@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://charts.bitnami.com/bitnami'   # external Helm repo
+    targetRevision: 18.1.11                          # example chart version (replace if you like)
+    chart: postgresql
+    helm:
+      valueFiles:
+        - '../../envs/prod/postgres.values.yaml'   # relative path from this file
+  destination:
+    # If ArgoCD is installed in the target cluster (EKS), use in-cluster API:
+    server: 'https://kubernetes.default.svc'
+    namespace: postgres-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

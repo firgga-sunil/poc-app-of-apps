@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-parent
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:firgga-sunil/poc-app-of-apps.git'   # <-- your charts repo
+    targetRevision: main
+    path: 'applications/prod'    # folder containing child Application manifests
+  destination:
+    server: 'https://kubernetes.default.svc'   # parent lives in this ArgoCD cluster
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false

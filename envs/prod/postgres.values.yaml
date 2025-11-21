@@ -1,0 +1,12 @@
+global:
+  postgresql:
+    postgresqlDatabase: demo_db
+    postgresqlUsername: demo_user
+    postgresqlPassword: "replace-with-secure"   # DO NOT store secrets in plaintext in repo
+primary:
+  persistence:
+    enabled: true   
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
