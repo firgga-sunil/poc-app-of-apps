@@ -1,0 +1,45 @@
+---
+# applications/phonepe/all-apps.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres-phonepe
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://charts.bitnami.com/bitnami"
+    targetRevision: "18.1.11"
+    chart: postgresql
+    helm:
+      valueFiles:
+        - '../../envs/phonepe/postgres.values.yaml'
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: postgres-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-phonepe
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://charts.bitnami.com/bitnami"
+    targetRevision: "22.3.2"
+    chart: nginx
+    helm:
+      valueFiles:
+        - '../../envs/phonepe/nginx.values.yaml'
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: nginx-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,8 @@
+primary:
+  persistence:
+    enabled: true
+postgresqlPassword: "demo-password"   # DO NOT commit real passwords
+resources:
+  requests:
+    cpu: 200m
+    memory: 512Mi
