@@ -1,8 +1,17 @@
+auth:
+  username: myuser
+  password: mypassword
+  database: mydb
+
 primary:
   persistence:
     enabled: true
-postgresqlPassword: "demo-password"   # DO NOT commit real passwords
-resources:
-  requests:
-    cpu: 200m
-    memory: 512Mi
+    storageClass: gp2
+    size: 10Gi
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+    limits:
+      memory: 512Mi
+      cpu: 250m
