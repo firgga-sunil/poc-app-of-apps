@@ -10,7 +10,7 @@ credentials:
 
 persistence:
   enabled: true
-  storageClass: "auto-ebs-sc"
+  storageClass: "auto-ebs-sc-v2"
   size: 30Gi
 
 service:
