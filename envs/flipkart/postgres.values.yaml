@@ -1,0 +1,17 @@
+auth:
+  username: myuser
+  password: mypassword
+  database: mydb
+
+primary:
+  persistence:
+    enabled: true
+    storageClass: standard-rwo
+    size: 10Gi
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+    limits:
+      memory: 512Mi
+      cpu: 250m
