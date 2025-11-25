@@ -48,26 +48,26 @@ spec:
     syncOptions:
       - CreateNamespace=true
 ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: ck-postgres
-#   namespace: argocd
-# spec:
-#   project: default
-#   source:
-#     repoURL: "git@github.com:firgga-sunil/poc-app-of-apps.git"
-#     targetRevision: main
-#     path: "charts/db/postgres"       # << CHANGE THIS
-#     helm:
-#       valueFiles:
-#         - "../../../envs/phonepe/ck-postgres.values.yaml"
-#   destination:
-#     server: "https://kubernetes.default.svc"
-#     namespace: ck-postgres-namespace
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#       - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ck-postgres
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "git@github.com:firgga-sunil/poc-app-of-apps.git"
+    targetRevision: main
+    path: "charts/db/postgres"       # << CHANGE THIS
+    helm:
+      valueFiles:
+        - "../../../envs/phonepe/ck-postgres.values.yaml"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: ck-postgres-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
